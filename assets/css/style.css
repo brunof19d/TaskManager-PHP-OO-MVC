@@ -1,0 +1,144 @@
+html *{
+	margin: 0;
+	padding: 0;
+	font: 14px Verdana;
+}
+
+header, footer {
+    width: 100%;
+    height: 120px;
+    border: 1px solid black;
+    background-color: #FFFAF0;
+    text-align: center;
+}
+
+p.text-footer {
+    margin: 20px;
+}
+
+h1 {
+    font-size: 20px;
+    margin: 20px;
+}
+
+.main-conteiner {
+    width: 80%;
+    height: auto;
+    margin: 2% 0 2% 10%;
+}
+
+.form-conteiner {
+    width: 50%;
+	margin: 20px auto;
+	padding: 10px;
+	border: 1px solid #999;
+	border-radius: 12px;
+}
+
+fieldset {
+    margin: 5px 0;
+    border: none;
+}
+
+legend {
+    text-align: center;
+    width: 50%;
+    font-size: 25px;
+    border-bottom: 1px solid black;
+}
+
+textarea.wt-resize {
+    width: 50%;
+    height: 70px;
+    padding: 5px;
+    resize: none;
+}
+
+.form-conteiner label {
+    margin: 5px 0 5px 0;
+    display: block;
+}
+
+.form-conteiner input {
+    width: 50%;
+    padding: 5px;
+}
+
+input[type="radio"] {
+    width: 15px;
+    display: inline-block;
+    margin: 5px 0;
+	cursor: pointer;
+}
+
+input[type="checkbox"] {
+    width: 15px;
+    display: inline-block;
+    margin: 5px 0;
+	cursor: pointer;
+}
+
+table {
+	border: 1px solid #999;
+	width: auto;
+	margin: 20px auto;
+	border-collapse: collapse;
+}
+
+table tr:nth-child(even) {
+	background-color: #eee;
+}
+
+table tr:first-child {
+	background-color:  grey;
+	color: black;
+}
+
+table tr:last-child td:nth-of-type(1) {
+	text-align: center;
+}
+
+.th-low {
+    width: 1%;
+}
+
+.th-medium {
+    width: 3%;
+}
+
+table th {
+	border: 1px solid #999;
+	font-weight: bold;
+	padding: 1%;
+}
+
+table td {
+	border: 1px solid #999;
+	text-align: center;
+    width: 8%;
+    height: auto;
+}
+
+.btn {
+	margin: 5px 0;
+	padding: 10px;
+	border: none;
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+.btn-create {
+	width: 100%;
+	background-color: green;
+	color: #fff;
+}
+
+.btn-edit{
+	background-color: #333399;
+	color: #fff;
+}
+
+.btn-delete{
+	background-color: red;
+	color: #fff;
+}
