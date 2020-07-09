@@ -27,6 +27,7 @@ h1 {
     margin: 2% 0 2% 10%;
 }
 
+/* Forms */
 .form-conteiner {
     width: 50%;
 	margin: 20px auto;
@@ -78,6 +79,13 @@ input[type="checkbox"] {
 	cursor: pointer;
 }
 
+.span-error {
+    font-size: 10px;
+    color: red;
+	font-weight: bold;
+}
+
+/* Table */
 table {
 	border: 1px solid #999;
 	width: auto;
@@ -119,6 +127,7 @@ table td {
     height: auto;
 }
 
+/* Buttons */
 .btn {
 	margin: 5px 0;
 	padding: 10px;
