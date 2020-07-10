@@ -57,7 +57,7 @@
                 <th class="th-low">Finished</th>
                 <th class="th-medium">Options</th>
             </tr>
-
+            <?php foreach ($tarefas as $task) : ?>               
             <tr>
                 <td class="th-medium">
                     <?php echo $task->getName(); ?>
@@ -69,16 +69,17 @@
                     <?php echo $task->getDeadline(); ?>
                 </td>
                 <td class="th-low">
-                    <?php echo traduz_prioridade($task->getPriority()); ?>
+                    <?php echo transformPriority($task->getPriority()); ?>
                 </td>
                 <td class="th-low">
-                    <?php echo traduz_concluida($task->getFinished()); ?>
+                    <?php echo transformFinished($task->getFinished()); ?>
                 </td>
                 <td class="th-medium">
                     <button type="submit" class="btn btn-edit" name="button">Edit</button>
                     <button type="submit" class="btn btn-delete" name="button">Delete</button>
                 </td>
             </tr>
+            <?php endforeach; ?>
         </table>
     </div>
 </body>

@@ -1,28 +1,37 @@
 <?php
 
-function traduz_concluida($concluida)
+function inputPost()
 {
-    if ($concluida == 1) {
-        return 'Sim';
+    if (count($_POST) > 0) {
+        return true;
     }
 
-    return 'Não';
+    return false;
 }
 
-function traduz_prioridade($codigo)
+function transformFinished($finished)
 {
-    $prioridade = '';
-    switch ($codigo) {
+    if ($finished == 1) {
+        return 'Yes';
+    }
+
+    return 'No';
+}
+
+function transformPriority($code)
+{
+    $priority = '';
+    switch ($code) {
         case 1:
-            $prioridade = 'Baixa';
+            $priority = 'Low';
             break;
         case 2:
-            $prioridade = 'Média';
+            $priority = 'Medium';
             break;
         case 3:
-            $prioridade = 'Alta';
+            $priority = 'High';
             break;
     }
 
-    return $prioridade;
+    return $priority;
 }
