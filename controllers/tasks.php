@@ -1,8 +1,5 @@
 <?php
-require __DIR__ . "/../src/Database.php";
-require __DIR__ . "/../src/Task.php";
-require __DIR__ . "/../src/TaskRepository.php";
-require __DIR__ . "/../helpers/helper.php";
+
 
 $pdo = Database::conectar();
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -46,7 +43,7 @@ if (inputPost()) {
 
     if (!$error_span) {
         $repositorio_tarefas->salvar($task);
-        header('Location: tasks.php');
+        header('Location: index.php');
         die();
     }
 }
