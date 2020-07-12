@@ -6,7 +6,14 @@ require __DIR__ . "/src/Database.php";
 require __DIR__ . "/src/Task.php";
 require __DIR__ . "/src/TaskRepository.php";
 
-// Criar um objeto da classe RepositorioTarefas
+// Create object the Database Class
+$pdo = Database::conectar();
+
+// Create object the Task Class
+$task = new Task();
+
+// // Create object the TaskRepository Class
+$repository_task= new TaskRepository($pdo);
 
 // Verificar qual arquivo (rota) deve ser usado para tratar a requisição
 $route = "tasks"; // Rota Padrao

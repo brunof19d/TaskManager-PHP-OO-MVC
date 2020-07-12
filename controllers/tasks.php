@@ -1,14 +1,8 @@
 <?php
 
-
-$pdo = Database::conectar();
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$task = new Task();
 $task->setPriority(1);
 $error_span = false;
 $error_validation = [];
-
-$repositorio_tarefas = new TaskRepository($pdo);
 
 // Checking for POST
 if (inputPost()) {
@@ -42,12 +36,12 @@ if (inputPost()) {
     }
 
     if (!$error_span) {
-        $repositorio_tarefas->salvar($task);
+        $repository_task->salvar($task);
         header('Location: index.php');
         die();
     }
 }
 
-$tarefas = $repositorio_tarefas->buscar();
+$tarefas = $repository_task->buscar();
 
 require __DIR__ . "/../view/template.php";
