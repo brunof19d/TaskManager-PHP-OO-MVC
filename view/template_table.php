@@ -1,7 +1,7 @@
 <table>
     <tr>
         <th class="th-medium">Task</th>
-        <th>Description</th>
+        <th class="th-high">Description</th>
         <th class="th-low">Deadline</th>
         <th class="th-low">Priority</th>
         <th class="th-low">Finished</th>
@@ -26,7 +26,10 @@
             </td>
             <td class="th-medium">
                 <button type="submit" class="btn btn-edit" name="button">Edit</button>
-                <button type="submit" class="btn btn-delete" name="button">Delete</button>
+
+                <button type="submit" class="btn btn-delete" name="button">
+                    <a href="controllers/delete.php?id=<?php echo $task->getId(); ?>">Delete</a>
+                </button>
             </td>
         </tr>
     <?php endforeach; ?>

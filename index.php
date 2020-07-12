@@ -13,7 +13,7 @@ $pdo = Database::conectar();
 $task = new Task();
 
 // // Create object the TaskRepository Class
-$repository_task= new TaskRepository($pdo);
+$repository_task = new TaskRepository($pdo);
 
 // Verificar qual arquivo (rota) deve ser usado para tratar a requisição
 $route = "tasks"; // Rota Padrao

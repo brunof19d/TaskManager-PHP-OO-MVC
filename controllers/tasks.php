@@ -1,6 +1,5 @@
 <?php
 
-$task->setPriority(1);
 $error_span = false;
 $error_validation = [];
 
@@ -23,8 +22,8 @@ if (inputPost()) {
     if (array_key_exists('deadline', $_POST) && strlen($_POST['deadline']) > 0) {
         $task->setDeadline($_POST['deadline']);
     } else {
-        $tem_erros = true;
-        $erros_validacao['deadline'] = 'O prazo não é uma data válida!';
+        $error_span = true;
+        $error_validation['deadline'] = 'Date is incorrect';
     }
 
     $task->setPriority($_POST['input-priority']);
@@ -36,7 +35,7 @@ if (inputPost()) {
     }
 
     if (!$error_span) {
-        $repository_task->salvar($task);
+        $repository_task->saveTask($task);
         header('Location: index.php');
         die();
     }

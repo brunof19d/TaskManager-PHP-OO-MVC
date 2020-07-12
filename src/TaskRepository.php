@@ -9,7 +9,7 @@ class TaskRepository extends PDO
         $this->pdo = $pdo;
     }
 
-    public function salvar(Task $task)
+    public function saveTask(Task $task)
     {
 
         $sqlSave = "
@@ -20,7 +20,7 @@ class TaskRepository extends PDO
         ";
 
         $query = $this->pdo->prepare($sqlSave);
-        
+
         $query->execute([
             'name'          => strip_tags($task->getName()),
             'description'   => strip_tags($task->getDescription()),
@@ -60,7 +60,7 @@ class TaskRepository extends PDO
 
     private function buscar_tarefa($id)
     {
-        $sqlBusca = "SELECT * FROM tarefas WHERE id = :id";
+        $sqlBusca = "SELECT * FROM task WHERE id = :id";
         $query = $this->pdo->prepare($sqlBusca);
         $query->execute([
             'id' => $id,
@@ -72,6 +72,15 @@ class TaskRepository extends PDO
         return $tarefa;
     }
 
+    public function removeTask($id)
+    {
+        $sqlRemove = " DELETE FROM task WHERE id = :id";
 
+        $query = $this->pdo->prepare($sqlRemove);
+
+        $query->execute([
+            'id' => $id
+        ]);
+    }
 
 }

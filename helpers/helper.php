@@ -35,3 +35,24 @@ function transformPriority($code)
 
     return $priority;
 }
+
+function traduz_data_para_exibir($data)
+{
+    if (is_object($data) && get_class($data) == "DateTime") {
+        return $data->format("d/m/Y");
+    }
+
+    if ($data == "" or $data == "00-00-0000") {
+        return "";
+    }
+
+    $dados = explode("-", $data);
+
+    if (count($dados) != 3) {
+        return $data;
+    }
+
+    $data_exibir = "{$dados[2]}/{$dados[1]}/{$dados[0]}";
+
+    return $data_exibir;
+}

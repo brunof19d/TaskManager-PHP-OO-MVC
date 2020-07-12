@@ -12,6 +12,11 @@ header, footer {
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
 p.text-footer {
     margin: 20px;
 }
@@ -87,10 +92,10 @@ input[type="checkbox"] {
 
 /* Table */
 table {
-	border: 1px solid #999;
-	width: auto;
-	margin: 20px auto;
-	border-collapse: collapse;
+    border: 1px solid #999;
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 100%;
 }
 
 table tr:nth-child(even) {
@@ -106,24 +111,19 @@ table tr:last-child td:nth-of-type(1) {
 	text-align: center;
 }
 
-.th-low {
-    width: 1%;
-}
-
-.th-medium {
-    width: 3%;
+table tr {
+    border: 1px solid #999;
 }
 
 table th {
 	border: 1px solid #999;
-	font-weight: bold;
-	padding: 1%;
+    font-weight: bold;
+    width: 150px;
 }
 
 table td {
 	border: 1px solid #999;
 	text-align: center;
-    width: 8%;
     height: auto;
 }
 
@@ -142,12 +142,14 @@ table td {
 	color: #fff;
 }
 
-.btn-edit{
+.btn-edit {
+    width: 60%;
 	background-color: #333399;
 	color: #fff;
 }
 
-.btn-delete{
+.btn-delete {
+    width: 60%;
 	background-color: red;
 	color: #fff;
 }
