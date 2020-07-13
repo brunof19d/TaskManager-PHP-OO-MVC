@@ -30,6 +30,31 @@ class TaskRepository extends PDO
         ]);
     }
 
+    public function updateTask(Task $task)
+    {
+        $sqlUpdate = "
+            UPDATE task SET
+                name = :name,
+                description = :description,
+                priority = :priority,
+                deadline = :deadline,
+                finished = :finished
+            WHERE id = :id
+        ";
+
+        $query = $this->pdo->prepare($sqlUpdate);
+
+        $query->execute([
+            'name'          => strip_tags($task->getName()),
+            'description'   => strip_tags($task->getDescription()),
+            'priority'      => $task->getPriority(),
+            'deadline'      => $task->getDeadline(),
+            'finished'      => ($task->getFinished()) ? 1 : 0,
+            'id'            => $task->getId(),
+        ]);
+    }
+
+
     public function buscar($tarefa_id = 0)
     {
         if ($tarefa_id > 0) {
@@ -66,10 +91,10 @@ class TaskRepository extends PDO
             'id' => $id,
         ]);
 
-        $tarefa = $query->fetchObject('Tarefa');
-        $tarefa->getId();
+        $task = $query->fetchObject('Task');
+        $task->getId();
 
-        return $tarefa;
+        return $task;
     }
 
     public function removeTask($id)
@@ -82,5 +107,4 @@ class TaskRepository extends PDO
             'id' => $id
         ]);
     }
-
 }

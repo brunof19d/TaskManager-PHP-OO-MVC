@@ -15,6 +15,8 @@ function transformFinished($finished)
         return 'Yes';
     }
 
+    if ( $finished == 0)
+
     return 'No';
 }
 
@@ -36,23 +38,15 @@ function transformPriority($code)
     return $priority;
 }
 
-function traduz_data_para_exibir($data)
+function showDateTable($date)
 {
-    if (is_object($data) && get_class($data) == "DateTime") {
-        return $data->format("d/m/Y");
+    $datas = explode("-", $date);
+
+    if (count($datas) != 3) {
+        return $date;
     }
 
-    if ($data == "" or $data == "00-00-0000") {
-        return "";
-    }
+    $date_show = "{$datas[2]}/{$datas[1]}/{$datas[0]}";
 
-    $dados = explode("-", $data);
-
-    if (count($dados) != 3) {
-        return $data;
-    }
-
-    $data_exibir = "{$dados[2]}/{$dados[1]}/{$dados[0]}";
-
-    return $data_exibir;
+    return $date_show;
 }

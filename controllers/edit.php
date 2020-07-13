@@ -1,10 +1,19 @@
 <?php
 
-$show_table = TRUE;
+require __DIR__ . "/../helpers/helper.php";
+require __DIR__ . "/../src/TaskRepository.php";
+require __DIR__ . "/../src/Database.php";
+require __DIR__ . "/../src/Task.php";
+
+$pdo = Database::conectar();
+$task = new Task();
+$repository_task = new TaskRepository($pdo);
+$task = $repository_task->buscar($_GET['id']);
+
+$show_table = false;
 $error_span = false;
 $error_validation = [];
 
-// Checking for POST
 if (inputPost()) {
 
     if (array_key_exists('name_task', $_POST) && strlen($_POST['name_task']) > 0) {
@@ -29,19 +38,19 @@ if (inputPost()) {
 
     $task->setPriority($_POST['input-priority']);
 
-    if (array_key_exists('finished', $_POST)) {
+    if (isset($_POST['finished'])) {
         $task->setFinished(true);
     } else {
         $task->setFinished(false);
     }
 
     if (!$error_span) {
-        $repository_task->saveTask($task);
-        header('Location: index.php');
+        $repository_task->updateTask($task);
+        header('Location: ../index.php');
         die();
     }
 }
 
-$tarefas = $repository_task->buscar();
+include __DIR__ . "/../view/template_task.php";
 
-require __DIR__ . "/../view/template.php";
+

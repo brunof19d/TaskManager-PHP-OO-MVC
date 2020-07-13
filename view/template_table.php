@@ -1,11 +1,11 @@
 <table>
     <tr>
-        <th class="th-medium">Task</th>
-        <th class="th-high">Description</th>
-        <th class="th-low">Deadline</th>
-        <th class="th-low">Priority</th>
-        <th class="th-low">Finished</th>
-        <th class="th-medium">Options</th>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Deadline</th>
+        <th>Priority</th>
+        <th>Finished</th>
+        <th>Options</th>
     </tr>
     <?php foreach ($tarefas as $task) : ?>
         <tr>
@@ -16,7 +16,7 @@
                 <?php echo $task->getDescription(); ?>
             </td>
             <td class="th-low">
-                <?php echo $task->getDeadline(); ?>
+                <?php echo showDateTable($task->getDeadline()); ?>
             </td>
             <td class="th-low">
                 <?php echo transformPriority($task->getPriority()); ?>
@@ -25,11 +25,12 @@
                 <?php echo transformFinished($task->getFinished()); ?>
             </td>
             <td class="th-medium">
-                <button type="submit" class="btn btn-edit" name="button">Edit</button>
-
-                <button type="submit" class="btn btn-delete" name="button">
-                    <a href="controllers/delete.php?id=<?php echo $task->getId(); ?>">Delete</a>
-                </button>
+                <a href="controllers/edit.php?id=<?php echo $task->getId(); ?>">
+                    <button type="submit" class="btn btn-edit" name="button">Edit</button>
+                </a>
+                <a href="controllers/delete.php?id=<?php echo $task->getId(); ?>">
+                    <button type="submit" class="btn btn-delete" name="button">Delete</button>
+                </a>
             </td>
         </tr>
     <?php endforeach; ?>
