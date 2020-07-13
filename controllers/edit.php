@@ -5,12 +5,10 @@ require __DIR__ . "/../src/TaskRepository.php";
 require __DIR__ . "/../src/Database.php";
 require __DIR__ . "/../src/Task.php";
 
-$pdo = Database::conectar();
+$pdo = Database::connectDB();
 $task = new Task();
 $repository_task = new TaskRepository($pdo);
-$task = $repository_task->buscar($_GET['id']);
-
-$show_table = false;
+$task = $repository_task->fetch($_GET['id']);
 $error_span = false;
 $error_validation = [];
 

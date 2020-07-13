@@ -25,10 +25,10 @@
                 <?php echo transformFinished($task->getFinished()); ?>
             </td>
             <td class="th-medium">
-                <a href="controllers/edit.php?id=<?php echo $task->getId(); ?>">
+                <a class="class-a-button" href="controllers/edit.php?id=<?php echo $task->getId(); ?>">
                     <button type="submit" class="btn btn-edit" name="button">Edit</button>
                 </a>
-                <a href="controllers/delete.php?id=<?php echo $task->getId(); ?>">
+                <a class="class-a-button" href="controllers/delete.php?id=<?php echo $task->getId(); ?>">
                     <button type="submit" class="btn btn-delete" name="button">Delete</button>
                 </a>
             </td>

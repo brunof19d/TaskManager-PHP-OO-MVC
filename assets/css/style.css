@@ -12,10 +12,18 @@ header, footer {
     text-align: center;
 }
 
-a {
+.class-a-button {
     text-decoration: none;
     color: white;
     width: 100%;
+}
+
+.backPage {
+    display: block;
+    color: black ;
+    font-style: italic;
+    text-align: end;
+    margin: 0 0 20px 0;
 }
 
 p.text-footer {

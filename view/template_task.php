@@ -13,8 +13,8 @@
 
 <body>
     <div class="main-conteiner">
-
         <form class="form-conteiner" method="post">
+        <p><a class="backPage" href="../index.php">Back to a task list.</a></p>
             <!-- Label Name -->
             <label>Name:
                 <?php if ($error_span && isset($error_validation['name_task'])) : ?>
@@ -30,7 +30,13 @@
             <textarea class="wt-resize" name="description_task"><?php echo htmlentities($task->getDescription()); ?></textarea>
 
             <!-- Label Deadline -->
-            <label>Deadline (Optional):</label>
+            <label>Deadline:
+                <?php if ($error_span && isset($error_validation['deadline'])) : ?>
+                    <span class="span-error">
+                        <?php echo $error_validation['deadline']; ?>
+                    </span>
+                <?php endif; ?>
+            </label>
             <input type="date" name="deadline" value="<?php echo showDateTable($task->getDeadline()); ?>">
 
             <!-- Label Priority -->

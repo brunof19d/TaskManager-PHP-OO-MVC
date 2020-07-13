@@ -7,7 +7,7 @@ require __DIR__ . "/src/Task.php";
 require __DIR__ . "/src/TaskRepository.php";
 
 // Create object the Database Class
-$pdo = Database::conectar();
+$pdo = Database::connectDB();
 
 // Create object the Task Class
 $task = new Task();

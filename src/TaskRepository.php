@@ -54,39 +54,38 @@ class TaskRepository extends PDO
         ]);
     }
 
-
-    public function buscar($tarefa_id = 0)
+    public function fetch($task_id = 0)
     {
-        if ($tarefa_id > 0) {
-            return $this->buscar_tarefa($tarefa_id);
+        if ($task_id > 0) {
+            return $this->fetchTask($task_id);
         } else {
-            return $this->buscar_tarefas();
+            return $this->fetchTasks();
         }
     }
 
-    private function buscar_tarefas()
+    public function fetchTasks()
     {
-        $sqlBusca = 'SELECT * FROM task';
-        $resultado = $this->pdo->query(
-            $sqlBusca,
+        $sqlQuery = 'SELECT * FROM task';
+        $resultSql = $this->pdo->query(
+            $sqlQuery,
             PDO::FETCH_CLASS,
             'Task'
         );
 
-        $tarefas = [];
+        $tasks = [];
 
-        foreach ($resultado as $tarefa) {
-            $tarefa->getId();
-            $tarefas[] = $tarefa;
+        foreach ($resultSql as $task) {
+            $task->getId();
+            $tasks[] = $task;
         }
 
-        return $tarefas;
+        return $tasks;
     }
 
-    private function buscar_tarefa($id)
+    public function fetchTask($id)
     {
-        $sqlBusca = "SELECT * FROM task WHERE id = :id";
-        $query = $this->pdo->prepare($sqlBusca);
+        $sqlQuery = "SELECT * FROM task WHERE id = :id";
+        $query = $this->pdo->prepare($sqlQuery);
         $query->execute([
             'id' => $id,
         ]);

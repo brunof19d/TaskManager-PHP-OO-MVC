@@ -18,7 +18,7 @@
         <textarea class="wt-resize" name="description_task" placeholder="Enter your description here"></textarea>
 
         <!-- Label Deadline -->
-        <label>Deadline (Optional):
+        <label>Deadline:
             <?php if ($error_span && isset($error_validation['deadline'])) : ?>
                 <span class="span-error">
                     <?php echo $error_validation['deadline']; ?>

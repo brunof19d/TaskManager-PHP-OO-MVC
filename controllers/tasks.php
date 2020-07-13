@@ -20,11 +20,11 @@ if (inputPost()) {
         $task_description['description_task'] = "";
     }
 
-    if (array_key_exists('deadline', $_POST) && strlen($_POST['deadline']) > 0) {
-        $task->setDeadline(traduz_data_br_para_objeto($_POST['deadline']));
+    if (array_key_exists('deadline', $_POST) && strlen($_POST['name_task']) > 0) {
+        $task->setDeadline($_POST['deadline']);
     } else {
         $error_span = true;
-        $error_validation['deadline'] = 'Date is incorrect';
+        $error_validation['deadline'] = 'Date is required.';
     }
 
     $task->setPriority($_POST['input-priority']);
@@ -42,6 +42,6 @@ if (inputPost()) {
     }
 }
 
-$tarefas = $repository_task->buscar();
+$tarefas = $repository_task->fetch();
 
 require __DIR__ . "/../view/template.php";

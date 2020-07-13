@@ -2,33 +2,33 @@
 
 class Database
 {
-    private static $dbNome = 'taskmanager';
+    private static $dbName = 'taskmanager';
     private static $dbHost = 'localhost';
-    private static $dbUsuario = 'root';
-    private static $dbSenha = '';
+    private static $dbUser = 'root';
+    private static $dbPwd = '';
 
-    private static $cont = null;
+    private static $connect = null;
 
     public function __construct()
     {
-        die('A função Init nao é permitido!');
+        die('Function init is denied');
     }
 
-    public static function conectar()
+    public static function connectDB()
     {
-        if (null == self::$cont) {
+        if (null == self::$connect) {
             try {
-                self::$cont =  new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbNome, self::$dbUsuario, self::$dbSenha);
-                self::$cont->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                self::$connect =  new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUser, self::$dbPwd);
+                self::$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $exception) {
                 die($exception->getMessage());
             }
         }
-        return self::$cont;
+        return self::$connect;
     }
 
-    public static function desconectar()
+    public static function disconnectDB()
     {
-        self::$cont = null;
+        self::$connect = null;
     }
 }
