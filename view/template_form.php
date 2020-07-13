@@ -25,7 +25,7 @@
                 </span>
             <?php endif; ?>
         </label>
-        <input type="date" name="deadline" min="2020-01-01">
+        <input type="date" name="deadline" placeholder="dd/mm/yy">
 
         <!-- Label Priority -->
         <label>Priority:</label>

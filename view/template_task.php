@@ -31,7 +31,7 @@
 
             <!-- Label Deadline -->
             <label>Deadline (Optional):</label>
-            <input type="text" name="deadline" min="2020-01-01" value="<?php echo showDateTable($task->getDeadline()); ?>">
+            <input type="date" name="deadline" value="<?php echo showDateTable($task->getDeadline()); ?>">
 
             <!-- Label Priority -->
             <label>Priority:</label>

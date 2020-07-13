@@ -38,8 +38,33 @@ function transformPriority($code)
     return $priority;
 }
 
+function traduz_data_br_para_objeto($date)
+{
+    if ($date == "") {
+        return "";
+    }
+
+    $datas = explode("/", $date);
+
+    if (count($datas) != 3) {
+        return $date;
+    }
+
+    return DateTime::createFromFormat('d/m/Y', $date);
+}
+
+
+
 function showDateTable($date)
 {
+    if (is_object($date) && get_class($date) == "DateTime") {
+        return $date->format("d/m/Y");
+    }
+
+    if ($date == "" OR $date == "0000-00-00") {
+        return "";
+    }
+
     $datas = explode("-", $date);
 
     if (count($datas) != 3) {

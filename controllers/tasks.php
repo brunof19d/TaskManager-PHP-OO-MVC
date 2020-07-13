@@ -21,7 +21,7 @@ if (inputPost()) {
     }
 
     if (array_key_exists('deadline', $_POST) && strlen($_POST['deadline']) > 0) {
-        $task->setDeadline($_POST['deadline']);
+        $task->setDeadline(traduz_data_br_para_objeto($_POST['deadline']));
     } else {
         $error_span = true;
         $error_validation['deadline'] = 'Date is incorrect';
