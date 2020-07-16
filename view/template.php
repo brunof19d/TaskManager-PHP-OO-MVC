@@ -1,3 +1,11 @@
+<?php
+/**
+ * @author           Bruno Dadario <brunof19d@gmail.com>
+ * @copyright        (c) 2020, Bruno Dadario. All Rights Reserved.
+ * @license          Lesser General Public License <http://www.gnu.org/copyleft/lesser.html>
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,9 +24,7 @@
 
         <?php require __DIR__ . "/template_form.php"; ?>
 
-        <?php if ($show_table == TRUE) : ?>
-            <?php require __DIR__ . "/template_table.php"; ?>
-        <?php endif; ?>
+        <?php require __DIR__ . "/template_table.php"; ?>
 
     </div>
 </body>
